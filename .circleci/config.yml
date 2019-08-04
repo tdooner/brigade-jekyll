@@ -1,0 +1,58 @@
+---
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-
+      - run:
+          name: Configure Bundler # use bundler version in Gemfile.lock
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: JEKYLL_ENV=production make build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - _site
+
+  deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+        name: Install and configure dependencies
+        command: |
+          npm install -g --silent gh-pages@2.1.0
+          git config user.email "circle-ci@example.com"
+          git config user.name "circle-ci"
+      - run:
+        name: Deploy docs to gh-pages branch
+        command: gh-pages --dist _site
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
