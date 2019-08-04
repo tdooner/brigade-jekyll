@@ -39,11 +39,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-        name: Install and configure dependencies
-        command: |
-          npm install -g --silent gh-pages@2.1.0
-          git config user.email "circle-ci@example.com"
-          git config user.name "circle-ci"
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.1.0
+            git config user.email "circle-ci@example.com"
+            git config user.name "circle-ci"
       - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --dist _site
