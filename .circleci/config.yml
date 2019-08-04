@@ -21,7 +21,11 @@ jobs:
           key: v1-bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run: JEKYLL_ENV=production make build
+      - run:
+          name: Build Jekyll site
+          command: |
+            jekyll meetup download
+            JEKYLL_ENV=production jekyll build
       - persist_to_workspace:
           root: .
           paths:
