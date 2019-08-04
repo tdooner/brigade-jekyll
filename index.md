@@ -1,6 +1,11 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
+{% assign event = site.data['events']['upcoming'] %}
+{% if event %}
+<h2>Upcoming Event:</h2>
+{{ event.name }}
+{{ event.local_date }}
+{{ event.local_time }}
+<a href="{{ event.link }}" target="_blank">RSVP on Meetup.com</a>
+{% endif %}

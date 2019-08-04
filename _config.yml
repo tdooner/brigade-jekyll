@@ -13,6 +13,14 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-meetup
+
+# Configuration settings for Jekyll Meetup plugin:
+meetup:
+  # download meetup events into the _data/events/ folder
+  collection_name: events
+  # fetch events for this meetup page (this is the part in the URL on Meetup)
+  urlname: OpenOakland
 
 exclude:
   - README.md
