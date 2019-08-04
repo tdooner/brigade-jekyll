@@ -45,8 +45,8 @@ jobs:
           git config user.email "circle-ci@example.com"
           git config user.name "circle-ci"
       - run:
-        name: Deploy docs to gh-pages branch
-        command: gh-pages --dist _site
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dist _site
 
 workflows:
   version: 2
