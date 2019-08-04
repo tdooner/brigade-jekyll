@@ -24,3 +24,4 @@ meetup:
 
 exclude:
   - README.md
+  - vendor
