@@ -25,7 +25,7 @@ jobs:
           name: Build Jekyll site
           command: |
             bundle exec jekyll meetup download
-            JEKYLL_ENV=production bundle exec jekyll build
+            JEKYLL_ENV=production bundle exec jekyll build --verbose
       - persist_to_workspace:
           root: .
           paths:
