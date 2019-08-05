@@ -1,0 +1,2 @@
+baseurl: "brigade-jekyll" # the subpath of your site, e.g. /blog
+url: "http://tdooner.github.io/brigade-jekyll/" # the base hostname & protocol for your site, e.g. http://example.com

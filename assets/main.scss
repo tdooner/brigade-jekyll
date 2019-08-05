@@ -1,0 +1,23 @@
+---
+---
+
+@import 'minima';
+
+.brigade-event {
+  border: 4px dashed #000;
+  padding: 8px 12px;
+}
+
+.brigade-event__name {
+  font-size: 1.5rem;
+  margin-bottom: .625rem;
+}
+
+.brigade-event__button {
+  background-color: #cf1f42;
+  color: #fff !important;
+  display: inline-block;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  text-decoration: none;
+}
