@@ -64,6 +64,11 @@ workflows:
               only:
                 - master
   periodic_rebuild:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
     triggers:
       - schedule:
           # 13:00 UTC = 6:00 AM PDT
