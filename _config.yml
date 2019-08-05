@@ -3,8 +3,8 @@ title: Code for Somewhere
 email: somewhere@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Code for Somewhere is a Brigade that builds community and technology.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "brigade-jekyll" # the subpath of your site, e.g. /blog
+url: "http://tdooner.github.io/brigade-jekyll/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
