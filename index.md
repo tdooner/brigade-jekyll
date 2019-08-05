@@ -30,7 +30,7 @@ meetup:
 
 <p>
 At this point, you will have to download the Meetup events by running
-<code>jekyll meetup download</code>.
+<code>jekyll meetup download</code>. Doing this <a href="https://github.com/tdooner/brigade-jekyll/blob/1f89b6105c93f91f411cdd83d8d66acc80230459/.circleci/config.yml#L27" target="_blank">right before the build command</a> is a great time.
 </p>
 
 <h3>Using it in the view</h3>
