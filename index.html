@@ -33,12 +33,66 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
-<h2>Upcoming Event:</h2>
-<p>OpenOakland Project Demo Night
-2019-08-06
-18:30
-<a href="https://www.meetup.com/OpenOakland/events/rtbwtqyzlbjb/" target="_blank">RSVP on Meetup.com</a></p>
+        <div class="home"><h2>Introduction</h2>
+<p>This is a demonstration Jekyll site to show:</p>
+<ul>
+<li>The <a href="https://github.com/tdooner/jekyll-meetup" target="_blank">
+  <code>jekyll-meetup</code> plugin</a></li>
+<li>A minimal configuration for CircleCI auto-deploy</li>
+<li>A sample Jekyll configuration for Github Pages</li>
+</ul>
+<p>The best parts to see are in <a href="https://github.com/tdooner/brigade-jekyll" target="_blank">the source on Github</a>.</p>
+
+<h2>Usage Example</h2>
+<h3>Add it to the Gemfile</h3>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">group</span> <span class="ss">:jekyll_plugins</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'jekyll-meetup'</span>
+<span class="k">end</span></code></pre></figure>
+
+<h3>Jekyll Configuration</h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration settings for Jekyll Meetup plugin:</span>
+<span class="na">meetup</span><span class="pi">:</span>
+  <span class="c1"># download meetup events into the _data/events/ folder</span>
+  <span class="na">collection_name</span><span class="pi">:</span> <span class="s">events</span>
+  <span class="c1"># fetch events for this meetup page (this is the part in the URL on Meetup)</span>
+  <span class="na">urlname</span><span class="pi">:</span> <span class="s">OpenOakland</span></code></pre></figure>
+
+<p>
+At this point, you will have to download the Meetup events by running
+<code>jekyll meetup download</code>.
+</p>
+
+<h3>Using it in the view</h3>
+
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">data</span><span class="p">[</span><span class="s1">'events'</span><span class="p">][</span><span class="s1">'upcoming'</span><span class="p">]</span><span class="w"> </span><span class="p">%}</span>
+&lt;h2&gt;Upcoming Event:&lt;/h2&gt;
+<span class="p">{{</span><span class="w"> </span><span class="nv">event</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">event</span><span class="p">.</span><span class="nv">local_date</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">event</span><span class="p">.</span><span class="nv">local_time</span><span class="w"> </span><span class="p">}}</span>
+&lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">event</span><span class="p">.</span><span class="nv">link</span><span class="w"> </span><span class="p">}}</span>" target="_blank"&gt;RSVP on Meetup.com&lt;/a&gt;</code></pre></figure>
+
+<h2>Output</h2>
+
+<div class="brigade-event">
+  Join us at our next event:
+  <h3 class="brigade-event__name">
+    OpenOakland Project Demo Night
+  </h3>
+
+  <p>
+  Tuesday, Aug 6, 2019
+  @
+  6:30pm
+  </p>
+
+  <div>
+    <a href="https://www.meetup.com/OpenOakland/events/rtbwtqyzlbjb/" target="_blank" class="brigade-event__button">
+      RSVP on Meetup.com
+    </a>
+  </div>
+</div>
 
 </div>
 
