@@ -49,10 +49,11 @@ jobs:
             - "5c:f8:92:8e:05:91:4f:8a:62:c2:f9:72:96:0a:70:a6"
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --dist _site --message "Rebuild Site
+          command: |
+            gh-pages --dist _site --message "Rebuild Site
 
-          $(date)
-          [skip ci]"
+            $(date)
+            [skip ci]"
 
 workflows:
   version: 2
